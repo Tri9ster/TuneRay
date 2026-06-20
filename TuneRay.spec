@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(
-    ['src/sonos_eq_gui_advanced.py'],
+    ['sonos_eq_gui_advanced.py'],
     pathex=['src'],
     binaries=[],
     datas=[],
@@ -17,6 +17,10 @@ a = Analysis(
     cipher=block_cipher,
     noarchive=False,
 )
+
+# macOS 15 で qdarwinpermissionplugin_location の静的イニシャライザが
+# CFBundleGetMainBundle()=NULL を呼びクラッシュするため除外する
+a.binaries = [b for b in a.binaries if 'qdarwinpermissionplugin' not in b[0].lower()]
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
