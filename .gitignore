@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ローカルデータ（デバイスキャッシュ・設定）
+*.json
+
+# 作業用ディレクトリ
+backup/
+DevDocs/
+Debugs/
+Reference/
+
+# ビルド出力物
+*.dmg
+dist_dmg/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+*CLAUDE.md
