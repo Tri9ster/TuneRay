@@ -59,8 +59,10 @@ TV
 
 ## Installation
 
+This project uses [uv](https://docs.astral.sh/uv/) for dependency and virtual environment management. Plain `pip install` is not supported — dependencies must be tracked in `pyproject.toml` / `uv.lock`.
+
 ```bash
-pip install PyQt6 soco pynput
+uv sync
 ```
 
 > **macOS note:** The app requests Accessibility permission on first launch (required for media key support).
@@ -70,7 +72,7 @@ pip install PyQt6 soco pynput
 ## Usage
 
 ```bash
-python sonos_eq_gui_advanced.py
+uv run python sonos_eq_gui_advanced.py
 ```
 
 1. The app appears as a **menu bar icon** (▶). Click it to open/close the panel.
@@ -111,6 +113,10 @@ Pressing media keys while an AirPlay or optical-input stream is active only show
 ### Framework-agnostic core
 
 `src/controller.py` and `src/models.py` have no dependency on PyQt6, making it straightforward to swap the GUI layer.
+
+### Dependency management uses uv
+
+Dependencies and the virtual environment are managed with [uv](https://docs.astral.sh/uv/). Plain `pip install` is not used, since it isn't tracked in `pyproject.toml` / `uv.lock` and breaks reproducibility.
 
 ---
 
@@ -222,8 +228,10 @@ TuneRay はこの制限を回避します。下記の「光デジタル → AUX 
 
 ## インストール
 
+このプロジェクトは依存関係・仮想環境の管理に [uv](https://docs.astral.sh/uv/) を使用します。生の `pip install` はサポートしません（`pyproject.toml` / `uv.lock` で依存関係を管理するため）。
+
 ```bash
-pip install PyQt6 soco pynput
+uv sync
 ```
 
 > **macOS 注意:** 初回起動時にアクセシビリティ権限のリクエストが表示されます（メディアキー制御に必要）。
@@ -233,7 +241,7 @@ pip install PyQt6 soco pynput
 ## 使い方
 
 ```bash
-python sonos_eq_gui_advanced.py
+uv run python sonos_eq_gui_advanced.py
 ```
 
 1. アプリは**メニューバーアイコン**（▶）として表示されます。クリックでパネルを開閉。
@@ -274,6 +282,10 @@ AirPlay・光デジタル入力中にメディアキーを押した場合はス�
 ### フレームワーク非依存なコア
 
 `src/controller.py` と `src/models.py` は PyQt6 に依存しないため、GUI フレームワークの変更が容易です。
+
+### 依存関係管理は uv を使う
+
+依存関係・仮想環境の管理には [uv](https://docs.astral.sh/uv/) を使用します。生の `pip install` は使用しません（`pyproject.toml` / `uv.lock` に記録されず再現性が崩れるため）。
 
 ---
 
